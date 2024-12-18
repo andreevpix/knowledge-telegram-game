@@ -1,0 +1,169 @@
+:root {
+    --tg-theme-bg-color: #ffffff;
+    --tg-theme-button-color: #2481cc;
+    --tg-theme-button-text-color: #ffffff;
+    --tg-theme-secondary-bg-color: #f0f0f0;
+}
+
+body {
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.container {
+    max-width: 100%;
+    min-height: 100vh;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: var(--tg-theme-secondary-bg-color);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    height: calc(100vh - 100px);
+}
+
+.tap-button {
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.1s;
+}
+
+.tap-button:active {
+    transform: scale(0.95);
+}
+
+.pulse-button {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--tg-theme-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.tg-button {
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.category-badge {
+    background: var(--tg-theme-secondary-bg-color);
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-align: center;
+    grid-column: 1 / span 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.floating-points {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    animation: floatUp 1s ease-out;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+}
+
+.correct-answer {
+    animation: correctPulse 0.5s;
+}
+
+.wrong-answer {
+    animation: wrongShake 0.5s;
+}
+
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.timer-warning {
+    color: #f44336;
+    animation: pulse 1s infinite;
+}
+
+.end-screen {
+    text-align: center;
+    padding: 20px;
+    grid-column: 1 / span 2;
+}
+
+/* Добавляем анимации для кнопок */
+.tap-button {
+    transition: all 0.3s ease;
+}
+
+.tap-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

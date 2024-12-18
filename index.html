@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Тапалка-Тест</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <div class="score-box">Очки: <span id="score">0</span></div>
+            <div class="streak-box">Серия: <span id="streak">0</span></div>
+            <div class="timer">Время: <span id="timer">30</span></div>
+        </div>
+        
+        <div class="game-area" id="gameArea">
+            <!-- Кнопки будут добавляться динамически -->
+        </div>
+
+        <div class="start-screen" id="startScreen">
+            <button class="tg-button pulse-button animate__animated animate__pulse animate__infinite" onclick="startGame()">НАЧАТЬ ИГРУ</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 
